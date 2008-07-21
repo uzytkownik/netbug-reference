@@ -98,6 +98,22 @@
         </glossdef>
       </glossentry>
       <glossentry>
+        <glossterm>comment</glossterm>
+        <glossdef>
+          <para>
+           A comment about the bug.
+          </para>
+        </glossdef>
+      </glossentry>
+      <glossentry>
+        <glossterm>attachment</glossterm>
+        <glossdef>
+          <para>
+           A file attachment to bug.
+          </para>
+        </glossdef>
+      </glossentry>
+      <glossentry>
         <glossterm>person</glossterm>
         <glossdef>
           <para>
