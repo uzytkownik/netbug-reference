@@ -2,7 +2,7 @@
   <title>Objects</title>
   <para>
     As the protocol is REST-based the base elements of it are objects.
-    Each object has following properties
+    Each object has following properties:
   </para>
   <glosslist>
     <glossentry>
@@ -64,6 +64,43 @@
           It is a special object denoting the history. It SHOULD NOT be included
           in default response but after the /history action. It indicates the
           changes of the bug.
+        </para>
+      </glossdef>
+    </glossentry>
+  </glosslist>
+  <para>
+    There are several types of objects:
+  </para>
+  <glosslist>
+    <glossentry>
+      <glossterm>product</glossterm>
+      <glossdef>
+        <para>
+          A single program, library or package.
+        </para>
+      </glossdef>
+    </glossentry>
+    <glossentry>
+      <glossterm>component</glossterm>
+      <glossdef>
+        <para>
+          Part of program, library of package.
+        </para>
+      </glossdef>
+    </glossentry>
+    <glossentry>
+      <glossterm>bug</glossterm>
+      <glossdef>
+        <para>
+          A single problem.
+        </para>
+      </glossdef>
+    </glossentry>
+    <glossentry>
+      <glossterm>person</glossterm>
+      <glossdef>
+        <para>
+          A person (reporter, developer or administrator).
         </para>
       </glossdef>
     </glossentry>
