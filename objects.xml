@@ -1,0 +1,71 @@
+<chapter>
+  <title>Objects</title>
+  <para>
+    As the protocol is REST-based the base elements of it are objects.
+    Each object has following properties
+  </para>
+  <glosslist>
+    <glossentry>
+      <glossterm>uuid</glossterm>
+      <glossdef>
+        <para>
+          The uuid number which identifies single object. The uuid MUST be
+          unique. It MUST NOT change.
+        </para>
+      </glossdef>
+    </glossentry>
+    <glossentry>
+      <glossterm>name</glossterm>
+      <glossdef>
+        <para>
+          The human-readable name. The implementation SHOULD handle urlencoded
+          form as an equivalent of uuid if it identifies the object
+          (i.e. there are no duplicates of names).
+        </para>
+      </glossdef>
+    </glossentry>
+    <glossentry>
+      <glossterm>link</glossterm>
+      <glossdef>
+        <para>
+          It indicates to which server the object belongs to. It can occure in
+          two cases:
+          <orderedlist>
+            <listitem>
+              <para>
+                The object is cached in server (for whatever reason) but the
+                most current version is pointed by the uri of this property.
+              </para>
+              <para>
+                In this case the implementation MAY remove the object in this
+                case in future to save the disk space.
+              </para>
+            </listitem>
+          </orderedlist>
+            or
+          <orderedlist continuation="continues" >
+            <listitem>
+              <para>
+                The object has been moved in the specified address from this
+                bug tracker.
+              </para>
+              <para>
+                The implementation MUST NOT remove the object from it's database
+              </para>
+            </listitem>
+          </orderedlist>
+        </para>
+      </glossdef>
+    </glossentry>
+    <glossentry>
+      <glossterm>history</glossterm>
+      <glossdef>
+        <para>
+          It is a special object denoting the history. It SHOULD NOT be included
+          in default response but after the /history action. It indicates the
+          changes of the bug.
+        </para>
+      </glossdef>
+    </glossentry>
+  </glosslist>
+</chapter>

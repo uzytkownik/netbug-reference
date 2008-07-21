@@ -1,0 +1,15 @@
+<preface>
+  <title>About</title>
+  <para>
+    The NetBug intention is to provide a decentralized bug database.
+    Currently each of the bug tracking system is independent and cannot
+    cooperate easily with the other systems. As a result the bug can be spread
+    across many bug tracking systems - for example in the distribution and 
+    projects.
+  </para>
+  <para>
+    The protocol is based on a REST and XML. But the implementation is free to
+    provide other formats (such as HTML, XHTML or JSON) if they are
+    requested by client.
+  </para>
+</preface>
