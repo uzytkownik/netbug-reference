@@ -118,6 +118,23 @@
                   </listitem>
                 </orderedlist>
               </para>
+              <para>
+                In both cases the implementation MAY return the 302 (Found)
+                return code.
+              </para>
+              <para>
+                The client SHOULD update its inner reference.
+              </para>
+            </glossdef>
+          </glossentry>
+          <glossentry>
+            <glossterm>stored</glossterm>
+            <glossdef>
+              <para>
+                Used with the link property. If it set to true it indicates that
+                the object will be stored pernamently. If to false it may be
+                removed in future.
+              </para>
             </glossdef>
           </glossentry>
           <glossentry>
