@@ -150,5 +150,77 @@
         </glosslist>
       </para>
     </sect2>
+    <sect2>
+      <title>Actions</title>
+      <sect3>
+        <title>Move</title>
+        <para>
+          The basic concept of the NetBug is that the different bug-related
+          resources are on different servers. For varied reasons the object
+          is required to be moved.
+        </para>
+        <para>
+          The procedure consist of several steps performed on the both servers.
+          Please note that implementation SHOULD provide some security systems
+          - such as moderation and/or allowing only for the developers - not
+          covered by this document.
+        </para>
+        <orderedlist>
+          <listitem>
+            <para>
+              A move action is sended to server with the parameter
+              <parameter class="function">to</parameter>. I.e.
+              <userinput>
+                POST /object/uuid/move?to=https%3A%2F%2Fexample.com%2F
+              </userinput>
+            </para>
+            <para>
+              <userinput>/object/uuid/</userinput> is the current location of
+              object while <userinput>http%3A%2F%2Fexample.com%2F</userinput>
+              is urlencoded prefix of future location.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              The 307 HTTP code is returned (Temporary Redirect) and client
+              is redirected to
+              <returnvalue>
+                to/object/receive?from=from/object/uuid&amp;code=code
+              </returnvalue>
+            </para>
+            <para>
+              The <parameter class="function">to</parameter> is the new location
+              of object while <returnvalue>from/object/uuid</returnvalue> is
+              current location. <returnvalue>code</returnvalue> is a temporary
+              passphrase. It MUST be valid for at least 30 minutes.
+            </para>
+            <para>
+              Please note that the server MAY response by 403 or 401 error code
+              (Forbidden, Unauthorized) if the client has not logged into the
+              account with the permission to move the object.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              The redirection by client is performed. The server sends the code
+              to orginal server:
+              <userinput>GET /object/uuid/export?code=code</userinput>.
+              On this request the original server MUST export the requested
+              object and all child objects (including its history) to XML.
+              Then it send it back.
+            </para>
+            <para>
+              The original server should set the location properly after the
+              process. If any attamp was made to modify any of those object
+              the 400 error code should be returned.
+            </para>
+          </listitem>
+        </orderedlist>
+        <para>
+          The implementation SHOULD try to connect by TLS/SSL if possible
+          falling back to plain http on fail.
+        </para>
+      </sect3>
+    </sect2>
   </sect1>
 </chapter>
