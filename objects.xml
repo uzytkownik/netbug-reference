@@ -152,6 +152,22 @@
     </sect2>
     <sect2>
       <title>Actions</title>
+      <para>
+        In this section there are described the actions which are not covered
+        by REST or the extensions to those actions.
+      </para>
+      <sect3>
+        <title>List (REST)</title>
+        <para>
+          This is standard REST action done by GET without UUID. However if 
+          <userinput>propertyname=value1,value2</userinput> is added that only
+          records with those property should be listed.
+        </para>
+        <para>
+          The sorting is forced by <userinput>sort=property,dir</userinput>,
+           where dir can be eighter DESC (descending) or ASC (ascending).
+        </para>
+      </sect3>
       <sect3>
         <title>Move</title>
         <para>
