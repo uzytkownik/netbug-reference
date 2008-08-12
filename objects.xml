@@ -169,6 +169,25 @@
         </para>
       </sect3>
       <sect3>
+        <title>Show (REST)</title>
+        <para>
+          This is standard REST action done by GET with the object.
+        </para>
+      </sect3>
+      <sect3>
+        <title>Create (REST)</title>
+        <para>
+          This is standard REST action done by POST. As a result the redirection
+          to the new object is performed.
+        </para>
+      </sect3>
+      <sect3>
+        <title>Update (REST)</title>
+        <para>
+          The object is updated according to the data send.
+        </para>
+      </sect3>
+      <sect3>
         <title>Move</title>
         <para>
           The basic concept of the NetBug is that the different bug-related
